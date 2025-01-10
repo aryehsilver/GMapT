@@ -1,0 +1,24 @@
+﻿@page "/single"
+@using GoogleMapsComponents
+@using GoogleMapsComponents.Maps
+
+<PageTitle>Single</PageTitle>
+
+<h1>Single</h1>
+
+<div style="max-width: 300px;">
+  <GoogleMap Id="single-map" Height="300px" Options="_mapOptions" />
+</div>
+
+@code {
+  private MapOptions _mapOptions = new()
+    {
+      Zoom = 5,
+      Center = new LatLngLiteral()
+      {
+        Lat = 53.6865494,
+        Lng = -2.1476396
+      },
+      MapTypeId = MapTypeId.Roadmap
+    };
+}

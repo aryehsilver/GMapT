@@ -1,0 +1,30 @@
+﻿@page "/multi"
+@using GoogleMapsComponents
+@using GoogleMapsComponents.Maps
+
+<PageTitle>Multi Test</PageTitle>
+
+<h1>Multi test</h1>
+
+<div style="display: grid;
+      place-content: center;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;">
+  @foreach (int item in Enumerable.Range(1, 8))
+  {
+    <div style="max-width: 300px;"><GoogleMap Id="@($"map-{item}")" Height="300px" Options="_mapOptions" /></div>
+  }
+</div>
+
+@code {
+  private MapOptions _mapOptions = new()
+    {
+      Zoom = 5,
+      Center = new LatLngLiteral()
+      {
+        Lat = 53.6865494,
+        Lng = -2.1476396
+      },
+      MapTypeId = MapTypeId.Roadmap
+    };
+}
